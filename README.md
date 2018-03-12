@@ -20,9 +20,21 @@ Compare with existing fusion methods, the proposed fusion method achieves state-
 
 ## Training
 
-### Training process
 ![](https://github.com/exceptionLi/imagefusion_densefuse/blob/master/figures/train.png)
 
 We train our network using MS-COCO(T.-Y. Lin, M. Maire, S. Belongie, J. Hays, P. Perona, D. Ramanan, P. Dollar, and C. L. Zitnick. Microsoft coco: Common objects in context. In ECCV, 2014. 3-5.) as input images which contains 80000 images and all resize to 256×256 and RGB to gray. Learning rate is 1×10^(-4). The batch size and epochs are 2 and 4, respectively. Our method is implemented with GTX 1080Ti and 64GB RAM.
 
 If you have any question about this code, feel free to reach me(hui_li_jnu@163.com)
+
+
+# Citation
+```
+@misc{li2018IVimagefusion_densefuse,
+    author = {Hui Li},
+    title = {CODE: DenseFuse_A Fusion Approach for Infrared and Visible Image},
+    year = {2018},
+    publisher = {GitHub},
+    journal = {GitHub repository},
+    howpublished = {\url{https://github.com/exceptionLi/imagefusion_densefuse}}
+  }
+```
