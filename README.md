@@ -11,9 +11,6 @@ Compare with existing fusion methods, the proposed fusion method achieves state-
 ### The framework of fusion method
 ![](https://github.com/exceptionLi/imagefusion_densefuse/blob/master/figures/framework.png)
 
-### Training process
-![](https://github.com/exceptionLi/imagefusion_densefuse/blob/master/figures/train.png)
-
 ### Fusion strategy - addition
 ![](https://github.com/exceptionLi/imagefusion_densefuse/blob/master/figures/fuse_addition.png)
 
@@ -21,7 +18,10 @@ Compare with existing fusion methods, the proposed fusion method achieves state-
 ![](https://github.com/exceptionLi/imagefusion_densefuse/blob/master/figures/fuse_l1norm.png)
 
 
-## Experimental Setting
+## Training
+
+### Training process
+![](https://github.com/exceptionLi/imagefusion_densefuse/blob/master/figures/train.png)
 
 We train our network using MS-COCO(T.-Y. Lin, M. Maire, S. Belongie, J. Hays, P. Perona, D. Ramanan, P. Dollar, and C. L. Zitnick. Microsoft coco: Common objects in context. In ECCV, 2014. 3-5.) as input images which contains 80000 images and all resize to 256×256 and RGB to gray. Learning rate is 1×10^(-4). The batch size and epochs are 2 and 4, respectively. Our method is implemented with GTX 1080Ti and 64GB RAM.
 
