@@ -1,4 +1,5 @@
 # Densefuse: A Fusion Approach to Infrared and Visible Images
+Submited to IEEE TIP.
 Infrared and visible image fusion using CNN layers and dense block architecture.
 
 ## Abstract
