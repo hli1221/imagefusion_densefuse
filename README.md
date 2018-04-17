@@ -31,7 +31,7 @@ If you have any question about this code, feel free to reach me(hui_li_jnu@163.c
 ```
 @misc{li2018IVimagefusion_densefuse,
     author = {Hui Li},
-    title = {CODE: DenseFuse_A Fusion Approach for Infrared and Visible Image},
+    title = {CODE: DenseFuse_A Fusion Approach to Infrared and Visible Images},
     year = {2018},
     publisher = {GitHub},
     journal = {GitHub repository},
