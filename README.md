@@ -1,4 +1,4 @@
-# Densefuse: A Fusion Approach for Infrared and Visible Image Fusion
+# Densefuse: A Fusion Approach to Infrared and Visible Images
 Infrared and visible image fusion using CNN layers and dense block architecture.
 
 ## Abstract
