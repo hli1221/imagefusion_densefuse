@@ -1,6 +1,9 @@
 # Densefuse: A Fusion Approach to Infrared and Visible Images - Tensorflow
 Submited to IEEE TIP.
 
+Li H, Wu X J. Densefuse: A Fusion Approach to Infrared and Visible Images[J]. arXiv preprint arXiv:1804.08361, 2018.
+(https://arxiv.org/abs/1804.08361)
+
 Infrared and visible image fusion using CNN layers and dense block architecture.
 
 ## Abstract
