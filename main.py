@@ -1,4 +1,4 @@
-# Demo - train the style transfer network & use it to generate an image
+# Demo - train the DenseFuse network & use it to generate an image
 
 from __future__ import print_function
 
