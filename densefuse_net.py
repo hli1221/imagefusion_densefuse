@@ -1,5 +1,5 @@
-# Style Transfer Network
-# Encoder -> AdaIN -> Decoder
+# DenseFuse Network
+# Encoder -> Addition/L1-norm -> Decoder
 
 import tensorflow as tf
 

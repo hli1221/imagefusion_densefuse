@@ -1,4 +1,4 @@
-# Train the Style Transfer Net
+# Train the DenseFuse Net
 
 from __future__ import print_function
 

@@ -1,7 +1,3 @@
-# Decoder mostly mirrors the encoder with all pooling layers replaced by nearest
-# up-sampling to reduce checker-board effects.
-# Decoder has no BN/IN layers.
-
 import tensorflow as tf
 from tensorflow.python import pywrap_tensorflow
 
@@ -15,9 +11,6 @@ class Decoder(object):
         self.model_pre_path = model_pre_path
 
         with tf.variable_scope('decoder'):
-            # self.weight_vars.append(self._create_variables(32, 32, 3, scope='conv2_1'))
-            # self.weight_vars.append(self._create_variables(32, 16, 3, scope='conv2_2'))
-            # self.weight_vars.append(self._create_variables(16, 1, 3, scope='conv2_3'))
 
             self.weight_vars.append(self._create_variables(64, 64, 3, scope='conv2_1'))
             self.weight_vars.append(self._create_variables(64, 32, 3, scope='conv2_2'))

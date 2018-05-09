@@ -1,7 +1,3 @@
-# Decoder mostly mirrors the encoder with all pooling layers replaced by nearest
-# up-sampling to reduce checker-board effects.
-# Decoder has no BN/IN layers.
-
 import tensorflow as tf
 from tensorflow.python import pywrap_tensorflow
 

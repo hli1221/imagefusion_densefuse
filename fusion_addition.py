@@ -1,6 +1,4 @@
-
-import tensorflow as tf
-
+# Additioin
 
 def Strategy(content, style):
     # return tf.reduce_sum(content, style)

@@ -13,6 +13,7 @@ import os
 
 # IS_TRAINING = True
 IS_TRAINING = False
+IS_VIDEO = True
 
 BATCH_SIZE = 2
 EPOCHES = 4
@@ -26,50 +27,47 @@ MODEL_SAVE_PATHS = [
 ]
 
 # MODEL_SAVE_PATH = './models/deepfuse_dense_model_bs4_epoch2_relu_pLoss_noconv_test.ckpt'
-
 # model_pre_path  = './models/deepfuse_dense_model_bs2_epoch2_relu_pLoss_noconv_NEW.ckpt'
+
+# In testing process, 'model_pre_path' is set to None
 model_pre_path  = None
 
 def main():
 
-    if IS_TRAINING:
+	if IS_TRAINING:
 
-        original_imgs_path = list_images('D:/ImageDatabase/Image_fusion_MSCOCO/original/')
+		original_imgs_path = list_images('D:/ImageDatabase/Image_fusion_MSCOCO/original/')
 
-        for ssim_weight, model_save_path in zip(SSIM_WEIGHTS, MODEL_SAVE_PATHS):
-            print('\nBegin to train the network ...\n')
-            train_recons(original_imgs_path, model_save_path, model_pre_path, ssim_weight, EPOCHES, BATCH_SIZE, debug=True)
+		for ssim_weight, model_save_path in zip(SSIM_WEIGHTS, MODEL_SAVE_PATHS):
+			print('\nBegin to train the network ...\n')
+			train_recons(original_imgs_path, model_save_path, model_pre_path, ssim_weight, EPOCHES, BATCH_SIZE, debug=True)
 
-            print('\nSuccessfully! Done training...\n')
-    else:
+			print('\nSuccessfully! Done training...\n')
+	else:
+		if IS_VIDEO:
+			ssim_weight = SSIM_WEIGHTS[0]
+			model_path = MODEL_SAVE_PATHS[0]
 
-        # sourceA_name = 'VIS'
-        # sourceB_name = 'IR'
-        # print('\nBegin to generate pictures ...\n')
-        #
-        # content_name = 'images/IV_images/' + sourceA_name
-        # style_name   = 'images/IV_images/' + sourceB_name
+			IR_path = list_images('video/1_IR/')
+			VIS_path = list_images('video/1_VIS/')
+			output_save_path = 'video/fused'+ str(ssim_weight) +'/'
+			generate(IR_path, VIS_path, model_path, model_pre_path,
+			         ssim_weight, 0, IS_VIDEO, 'addition', output_path=output_save_path)
+		else:
+			print('\nBegin to generate pictures ...\n')
 
-        sourceA_name = 'image'
-        sourceB_name = 'image'
-        print('\nBegin to generate pictures ...\n')
+			path = 'images/IV_images/'
+			for i in range(20):
+				index = i + 1
+				infrared = path + 'IR' + str(index) + '.png'
+				visible = path + 'VIS' + str(index) + '.png'
+				fusion_type = 'addition'
+				# fusion_type = 'l1'
+				for ssim_weight, model_path in zip(SSIM_WEIGHTS, MODEL_SAVE_PATHS):
+					output_save_path = 'outputs/fused_deepdense_bs2_epoch4_all_l1_focus_'+str(ssim_weight)
 
-        content_name = 'images/multifocus_images/' + sourceA_name
-        style_name = 'images/multifocus_images/' + sourceB_name
-
-        # fusion_type = 'addition'
-        fusion_type = 'l1'
-        # fusion_type = 'weight' # Failed
-        for ssim_weight, model_save_path in zip(SSIM_WEIGHTS, MODEL_SAVE_PATHS):
-            output_save_path = 'outputs/fused_deepdense_bs2_epoch4_all_l1_focus_'+str(ssim_weight)
-            for i in range(20):
-                index = i + 1
-                content_path = content_name + str(index) + '_left.png'
-                style_path = style_name + str(index) + '_right.png'
-                generate(content_path, style_path, model_save_path, model_pre_path, ssim_weight, index, fusion_type, output_path=output_save_path)
-
-        # print('\ntype(generated_images):', type(generated_images))
-        # print('\nlen(generated_images):', len(generated_images), '\n')
+					generate(infrared, visible, model_path, model_pre_path,
+					         ssim_weight, index, IS_VIDEO, type = fusion_type, output_path = output_save_path)
 
 
 if __name__ == '__main__':
