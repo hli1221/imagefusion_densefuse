@@ -33,8 +33,12 @@ If you have any question about this code, feel free to reach me(hui_li_jnu@163.c
 
 
 # Citation
+
+For paper:
+
 Li H, Wu X J. DenseFuse: A Fusion Approach to Infrared and Visible Images[J]. arXiv preprint arXiv:1804.08361, 2018.
 
+For code:
 ```
 @misc{li2018IVimagefusion_densefuse,
     author = {Hui Li},
