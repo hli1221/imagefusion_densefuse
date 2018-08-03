@@ -1,5 +1,5 @@
 # Densefuse: A Fusion Approach to Infrared and Visible Images - Tensorflow
-IEEE Transactions on Image Processing (In Peer Review)
+IEEE Transactions on Image Processing (MAJOR REVISION)
 
 Li H, Wu X J. DenseFuse: A Fusion Approach to Infrared and Visible Images[J]. arXiv preprint arXiv:1804.08361, 2018.
 (https://arxiv.org/abs/1804.08361)
