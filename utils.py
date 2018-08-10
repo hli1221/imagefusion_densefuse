@@ -34,6 +34,7 @@ def get_train_images(paths, resize_len=512, crop_height=256, crop_width=256, fla
     nx = 0
     for path in paths:
         image = imread(path, mode='L')
+        # image = imread(path, mode='RGB')
 
         if flag:
             image = np.stack(image, axis=0)
@@ -44,8 +45,15 @@ def get_train_images(paths, resize_len=512, crop_height=256, crop_width=256, fla
 
         images.append(image)
     images = np.stack(images, axis=-1)
-
     return images
+
+
+def get_train_images_rgb(path, resize_len=512, crop_height=256, crop_width=256, flag = True):
+
+    # image = imread(path, mode='L')
+    image = imread(path, mode='RGB')
+
+    return image
 
 
 def get_images(paths, height=None, width=None):
@@ -83,7 +91,8 @@ def save_images(paths, datas, save_path, prefix=None, suffix=None):
     for i, path in enumerate(paths):
         data = datas[i]
         # print('data ==>>\n', data)
-        data = data.reshape([data.shape[0], data.shape[1]])
+        if data.shape[2] == 1:
+            data = data.reshape([data.shape[0], data.shape[1]])
         # print('data reshape==>>\n', data)
 
         name, ext = splitext(path)
