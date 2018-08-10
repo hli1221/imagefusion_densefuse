@@ -30,6 +30,9 @@ MODEL_SAVE_PATHS = [
 # model_pre_path  = './models/deepfuse_dense_model_bs2_epoch2_relu_pLoss_noconv_NEW.ckpt'
 
 # In testing process, 'model_pre_path' is set to None
+# The "model_pre_path" in "main.py" is just a pre-train model and not necessary for training and testing. 
+# It is set as None when you want to train your own model. 
+# If you already train a model, you can set it as your model for initialize weights.
 model_pre_path  = None
 
 def main():
