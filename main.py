@@ -11,9 +11,12 @@ import os
 
 # os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 
-# IS_TRAINING = True
+# True for training phase
 IS_TRAINING = False
+# True for video sequences(frames)
 IS_VIDEO = False
+# True for RGB images
+is_RGB = False
 
 BATCH_SIZE = 2
 EPOCHES = 4
@@ -33,7 +36,7 @@ MODEL_SAVE_PATHS = [
 # The "model_pre_path" in "main.py" is just a pre-train model and not necessary for training and testing. 
 # It is set as None when you want to train your own model. 
 # If you already train a model, you can set it as your model for initialize weights.
-model_pre_path  = None
+model_pre_path = None
 
 def main():
 
@@ -59,7 +62,6 @@ def main():
 			         ssim_weight, 0, IS_VIDEO, 'addition', output_path=output_save_path)
 		else:
 			print('\nBegin to generate pictures ...\n')
-			is_RGB = False
 			path = 'images/IV_images/'
 			for i in range(1):
 				index = i + 1
