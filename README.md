@@ -6,6 +6,8 @@ Li H, Wu X J. DenseFuse: A Fusion Approach to Infrared and Visible Images[J]. ar
 
 Infrared and visible image fusion using CNN layers and dense block architecture.
 
+And in 'main.py' file, you will find how to run these codes.
+
 ## Abstract
 In this paper, we present a novel deep learning architecture for infrared and visible images fusion problem. 
 
