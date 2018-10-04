@@ -8,6 +8,7 @@ Infrared and visible image fusion using CNN layers and dense block architecture.
 
 ## Note
 In 'main.py' file, you will find how to run these codes.
+
 The evaluation methods which used in our paper are shown in 'analysis_MatLab'. And these methods are implemented by MatLab.
 
 ## Abstract
