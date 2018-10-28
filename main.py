@@ -16,7 +16,7 @@ IS_TRAINING = False
 # True for video sequences(frames)
 IS_VIDEO = False
 # True for RGB images
-is_RGB = False
+is_RGB = True
 
 BATCH_SIZE = 2
 EPOCHES = 4
@@ -61,21 +61,30 @@ def main():
 			generate(IR_path, VIS_path, model_path, model_pre_path,
 			         ssim_weight, 0, IS_VIDEO, 'addition', output_path=output_save_path)
 		else:
+			ssim_weight = SSIM_WEIGHTS[2]
+			model_path = MODEL_SAVE_PATHS[2]
 			print('\nBegin to generate pictures ...\n')
-			path = 'images/IV_images/'
+			# path = 'images/IV_images/'
+			path = 'images/MF_images/color/'
 			for i in range(1):
 				index = i + 1
-				infrared = path + 'IR' + str(index) + '.png'
-				visible = path + 'VIS' + str(index) + '.png'
+				# infrared = path + 'IR' + str(index) + '.png'
+				# visible = path + 'VIS' + str(index) + '.png'
+				infrared = path + 'lytro-2-A.jpg'
+				visible = path + 'lytro-2-B.jpg'
 
 				# choose fusion layer
 				fusion_type = 'addition'
 				# fusion_type = 'l1'
-				for ssim_weight, model_path in zip(SSIM_WEIGHTS, MODEL_SAVE_PATHS):
-					output_save_path = 'outputs'
+				# for ssim_weight, model_path in zip(SSIM_WEIGHTS, MODEL_SAVE_PATHS):
+				# 	output_save_path = 'outputs'
+                #
+				# 	generate(infrared, visible, model_path, model_pre_path,
+				# 	         ssim_weight, index, IS_VIDEO, is_RGB, type = fusion_type, output_path = output_save_path)
 
-					generate(infrared, visible, model_path, model_pre_path,
-					         ssim_weight, index, IS_VIDEO, is_RGB, type = fusion_type, output_path = output_save_path)
+				output_save_path = 'outputs'
+				generate(infrared, visible, model_path, model_pre_path,
+						 ssim_weight, index, IS_VIDEO, is_RGB, type = fusion_type, output_path = output_save_path)
 
 
 if __name__ == '__main__':
