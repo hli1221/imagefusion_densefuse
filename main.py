@@ -70,6 +70,8 @@ def main():
 				index = i + 1
 				# infrared = path + 'IR' + str(index) + '.png'
 				# visible = path + 'VIS' + str(index) + '.png'
+
+				# RGB images
 				infrared = path + 'lytro-2-A.jpg'
 				visible = path + 'lytro-2-B.jpg'
 
