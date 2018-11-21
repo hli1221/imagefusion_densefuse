@@ -168,8 +168,8 @@ def _handler_rgb(ir_path, vis_path, model_path, model_pre_path, ssim_weight, ind
 	ir_img = ir_img.reshape([1, dimension[0], dimension[1], dimension[2]])
 	vis_img = vis_img.reshape([1, dimension[0], dimension[1], dimension[2]])
 
-	ir_img = np.transpose(ir_img, (0, 2, 1, 3))
-	vis_img = np.transpose(vis_img, (0, 2, 1, 3))
+	#ir_img = np.transpose(ir_img, (0, 2, 1, 3))
+	#vis_img = np.transpose(vis_img, (0, 2, 1, 3))
 
 	ir_img1 = ir_img[:, :, :, 0]
 	ir_img1 = ir_img1.reshape([1, dimension[0], dimension[1], 1])
@@ -209,7 +209,7 @@ def _handler_rgb(ir_path, vis_path, model_path, model_pre_path, ssim_weight, ind
 		output3 = output3.reshape([1, dimension[0], dimension[1]])
 
 		output = np.stack((output1, output2, output3), axis=-1)
-		output = np.transpose(output, (0, 2, 1, 3))
+		#output = np.transpose(output, (0, 2, 1, 3))
 		save_images(ir_path, output, output_path,
 		            prefix='fused' + str(index), suffix='_densefuse_addition_'+str(ssim_weight))
 
@@ -224,8 +224,8 @@ def _handler_rgb_l1(ir_path, vis_path, model_path, model_pre_path, ssim_weight, 
 	ir_img = ir_img.reshape([1, dimension[0], dimension[1], dimension[2]])
 	vis_img = vis_img.reshape([1, dimension[0], dimension[1], dimension[2]])
 
-	ir_img = np.transpose(ir_img, (0, 2, 1, 3))
-	vis_img = np.transpose(vis_img, (0, 2, 1, 3))
+	#ir_img = np.transpose(ir_img, (0, 2, 1, 3))
+	#vis_img = np.transpose(vis_img, (0, 2, 1, 3))
 
 	ir_img1 = ir_img[:, :, :, 0]
 	ir_img1 = ir_img1.reshape([1, dimension[0], dimension[1], 1])
@@ -280,6 +280,6 @@ def _handler_rgb_l1(ir_path, vis_path, model_path, model_pre_path, ssim_weight, 
 		output3 = output3.reshape([1, dimension[0], dimension[1]])
 
 		output = np.stack((output1, output2, output3), axis=-1)
-		output = np.transpose(output, (0, 2, 1, 3))
+		#output = np.transpose(output, (0, 2, 1, 3))
 		save_images(ir_path, output, output_path,
 		            prefix='fused' + str(index), suffix='_densefuse_l1norm_'+str(ssim_weight))
