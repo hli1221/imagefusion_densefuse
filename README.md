@@ -43,7 +43,7 @@ We train our network using MS-COCO(T.-Y. Lin, M. Maire, S. Belongie, J. Hays, P.
 ### Multi-focus images(RGB)
 ![](https://github.com/exceptionLi/imagefusion_densefuse/blob/master/figures/fused_color.png)
 
-If you have any question about this code, feel free to reach me(hui_li_jnu@163.com)
+If you have any question about this code, feel free to reach me(hui_li_jnu@163.com, lihui@stu.jiangnan.edu.cn)
 
 
 # Citation
