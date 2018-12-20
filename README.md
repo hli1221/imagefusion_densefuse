@@ -1,10 +1,10 @@
 # Densefuse: A Fusion Approach to Infrared and Visible Images - Tensorflow
-IEEE Transactions on Image Processing (Accept, 03-Dec-2018)
+Published in: IEEE Transactions on Image Processing ( Early Access )
 
-Li H, Wu X J. DenseFuse: A Fusion Approach to Infrared and Visible Images[J]. arXiv preprint arXiv:1804.08361, 2018.
-(https://arxiv.org/abs/1804.08361)
+*H. Li, X. J. Wu, DenseFuse: A Fusion Approach to Infrared and Visible Images, IEEE Trans. Image Process.(Early Access), pp. 1-1, 2018.*
 
-Infrared and visible image fusion using CNN layers and dense block architecture.
+- [IEEEXplore](https://ieeexplore.ieee.org/document/8580578)
+- [arXiv](https://arxiv.org/abs/1804.08361)
 
 ## Note
 In 'main.py' file, you will find how to run these codes.
@@ -50,7 +50,7 @@ If you have any question about this code, feel free to reach me(hui_li_jnu@163.c
 
 For paper:
 
-Li H, Wu X J. DenseFuse: A Fusion Approach to Infrared and Visible Images[J]. arXiv preprint arXiv:1804.08361, 2018.
+ *H. Li, X. J. Wu, DenseFuse: A Fusion Approach to Infrared and Visible Images, IEEE Trans. Image Process.(Early Access), pp. 1-1, 2018.*
 
 For code:
 ```
