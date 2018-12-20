@@ -40,6 +40,9 @@ We train our network using MS-COCO(T.-Y. Lin, M. Maire, S. Belongie, J. Hays, P.
 ### Infrared and visible images('street')
 ![](https://github.com/hli1221/imagefusion_densefuse/blob/master/figures/fused_street.png)
 
+### Infrared and visible images(RGB)
+![](https://github.com/hli1221/imagefusion_densefuse/blob/master/figures/ivrgb_results.png)
+
 ### Multi-focus images(RGB)
 ![](https://github.com/hli1221/imagefusion_densefuse/blob/master/figures/fused_color.png)
 
