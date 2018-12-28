@@ -19,7 +19,7 @@ In contrast to conventional convolutional networks, our encoding network is comb
 Compare with existing fusion methods, the proposed fusion method achieves state-of-the-art performance in objective and subjective assessment.
 
 ### The framework of fusion method
-<img src="https://github.com/hli1221/imagefusion_densefuse/blob/master/figures/framework.png" width="800">
+![](https://github.com/hli1221/imagefusion_densefuse/blob/master/figures/framework.png)
 
 ### Fusion strategy - addition
 <img src="https://github.com/hli1221/imagefusion_densefuse/blob/master/figures/fuse_addition.png" width="600">
