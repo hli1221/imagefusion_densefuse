@@ -22,10 +22,10 @@ Compare with existing fusion methods, the proposed fusion method achieves state-
 <img src="https://github.com/hli1221/imagefusion_densefuse/blob/master/figures/framework.png" width="800">
 
 ### Fusion strategy - addition
-![](https://github.com/hli1221/imagefusion_densefuse/blob/master/figures/fuse_addition.png)
+<img src="https://github.com/hli1221/imagefusion_densefuse/blob/master/figures/fuse_addition.png" width="600">
 
 ### Fusion strategy - l1-norm
-![](https://github.com/hli1221/imagefusion_densefuse/blob/master/figures/fuse_l1norm.png)
+<img src="https://github.com/hli1221/imagefusion_densefuse/blob/master/figures/fuse_l1norm.png" width="600">
 
 
 ## Training
