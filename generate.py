@@ -6,7 +6,7 @@ from datetime import datetime
 
 from fusion_l1norm import L1_norm
 from densefuse_net import DenseFuseNet
-from utils import get_images, save_images, get_train_images, get_train_images_rgb
+from utils import get_images, save_images, get_train_images, get_test_image_rgb
 
 
 def generate(infrared_path, visible_path, model_path, model_pre_path, ssim_weight, index, IS_VIDEO, IS_RGB, type='addition', output_path=None):
@@ -161,8 +161,8 @@ def _handler_video(ir_path, vis_path, model_path, model_pre_path, ssim_weight, o
 def _handler_rgb(ir_path, vis_path, model_path, model_pre_path, ssim_weight, index, output_path=None):
 	# ir_img = get_train_images(ir_path, flag=False)
 	# vis_img = get_train_images(vis_path, flag=False)
-	ir_img = get_train_images_rgb(ir_path, flag=False)
-	vis_img = get_train_images_rgb(vis_path, flag=False)
+	ir_img = get_test_image_rgb(ir_path, flag=False)
+	vis_img = get_test_image_rgb(vis_path, flag=False)
 	dimension = ir_img.shape
 
 	ir_img = ir_img.reshape([1, dimension[0], dimension[1], dimension[2]])
@@ -217,8 +217,8 @@ def _handler_rgb(ir_path, vis_path, model_path, model_pre_path, ssim_weight, ind
 def _handler_rgb_l1(ir_path, vis_path, model_path, model_pre_path, ssim_weight, index, output_path=None):
 	# ir_img = get_train_images(ir_path, flag=False)
 	# vis_img = get_train_images(vis_path, flag=False)
-	ir_img = get_train_images_rgb(ir_path, flag=False)
-	vis_img = get_train_images_rgb(vis_path, flag=False)
+	ir_img = get_test_image_rgb(ir_path, flag=False)
+	vis_img = get_test_image_rgb(vis_path, flag=False)
 	dimension = ir_img.shape
 
 	ir_img = ir_img.reshape([1, dimension[0], dimension[1], dimension[2]])
