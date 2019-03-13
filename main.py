@@ -16,7 +16,7 @@ IS_TRAINING = False
 # True for video sequences(frames)
 IS_VIDEO = False
 # True for RGB images
-is_RGB = True
+is_RGB = False
 
 BATCH_SIZE = 2
 EPOCHES = 4
