@@ -9,12 +9,16 @@ import matplotlib.pyplot as plt
 
 from ssim_loss_function import SSIM_LOSS
 from densefuse_net import DenseFuseNet
-from utils import get_train_images
+from utils import get_train_images, get_train_images_rgb
 
 STYLE_LAYERS  = ('relu1_1', 'relu2_1', 'relu3_1', 'relu4_1')
 
-TRAINING_IMAGE_SHAPE = (256, 256, 1) # (height, width, color_channels)
-TRAINING_IMAGE_SHAPE_OR = (256, 256, 1) # (height, width, color_channels)
+# TRAINING_IMAGE_SHAPE = (256, 256, 1) # (height, width, color_channels)
+# TRAINING_IMAGE_SHAPE_OR = (256, 256, 1) # (height, width, color_channels)
+
+HEIGHT = 256
+WIDTH = 256
+CHANNELS = 1 # gray scale, default
 
 LEARNING_RATE = 1e-4
 EPSILON = 1e-5
@@ -42,11 +46,7 @@ def train_recons(original_imgs_path, validatioin_imgs_path, save_path, model_pre
         original_imgs_path = original_imgs_path[:-mod]
 
     # get the traing image shape
-    HEIGHT, WIDTH, CHANNELS = TRAINING_IMAGE_SHAPE
-    INPUT_SHAPE = (BATCH_SIZE, HEIGHT, WIDTH, CHANNELS)
-
-    HEIGHT_OR, WIDTH_OR, CHANNELS_OR = TRAINING_IMAGE_SHAPE_OR
-    INPUT_SHAPE_OR = (BATCH_SIZE, HEIGHT_OR, WIDTH_OR, CHANNELS_OR)
+    INPUT_SHAPE_OR = (BATCH_SIZE, HEIGHT, WIDTH, CHANNELS)
 
     # create the graph
     with tf.Graph().as_default(), tf.Session() as sess:
@@ -99,8 +99,11 @@ def train_recons(original_imgs_path, validatioin_imgs_path, save_path, model_pre
                 # retrive a batch of content and style images
 
                 original_path = original_imgs_path[batch*BATCH_SIZE:(batch*BATCH_SIZE + BATCH_SIZE)]
+                ### read gray scale images
                 original_batch = get_train_images(original_path, crop_height=HEIGHT, crop_width=WIDTH, flag=False)
-                original_batch = original_batch.reshape([BATCH_SIZE, 256, 256, 1])
+                ### read RGB images
+                # original_batch = get_train_images_rgb(original_path, crop_height=HEIGHT, crop_width=WIDTH, flag=False)
+                original_batch = original_batch.transpose((3, 0, 1, 2))
 
                 # print('original_batch shape final:', original_batch.shape)
 
