@@ -41,6 +41,9 @@ We train our network using MS-COCO(T.-Y. Lin, M. Maire, S. Belongie, J. Hays, P.
 ![](https://github.com/hli1221/imagefusion_densefuse/blob/master/figures/fused_street.png)
 
 ### Infrared and visible images(RGB)
+Database:  
+Hwang S, Park J, Kim N, et al. Multispectral pedestrian detection: Benchmark dataset and baseline[C]//Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition. 2015: 1037-1045.  
+
 ![](https://github.com/hli1221/imagefusion_densefuse/blob/master/figures/ivrgb_results.png)
 
 ### Multi-focus images(RGB)
