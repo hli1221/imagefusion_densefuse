@@ -62,10 +62,8 @@ For code:
 ```
 @misc{li2018IVimagefusion_densefuse,
     author = {Hui Li},
-    title = {CODE: DenseFuse_A Fusion Approach to Infrared and Visible Images},
+    title = {Codes for DenseFuse},
     year = {2018},
-    publisher = {GitHub},
-    journal = {GitHub repository},
-    howpublished = {\url{https://github.com/hli1221/imagefusion_densefuse}}
+    note = {\url{https://github.com/hli1221/imagefusion_densefuse}}
   }
 ```
