@@ -6,6 +6,10 @@ Published in: IEEE Transactions on Image Processing
 - [IEEEXplore](https://ieeexplore.ieee.org/document/8580578)
 - [arXiv](https://arxiv.org/abs/1804.08361)
 
+
+## Pytorch version can available [here](https://github.com/hli1221/densefuse-pytorch)
+
+
 ## Note
 In 'main.py' file, you will find how to run these codes.
 
