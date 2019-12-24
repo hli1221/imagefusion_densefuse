@@ -7,7 +7,7 @@ Published in: IEEE Transactions on Image Processing
 - [arXiv](https://arxiv.org/abs/1804.08361)
 
 
-## Pytorch version can available [here](https://github.com/hli1221/densefuse-pytorch)
+## Pytorch version is available at [here](https://github.com/hli1221/densefuse-pytorch)
 
 
 ## Note
