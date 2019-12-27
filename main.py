@@ -2,12 +2,9 @@
 
 from __future__ import print_function
 
-import time
-
 from train_recons import train_recons
 from generate import generate
 from utils import list_images
-import os
 
 # os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 
@@ -16,7 +13,11 @@ IS_TRAINING = False
 # True for video sequences(frames)
 IS_VIDEO = False
 # True for RGB images
-is_RGB = False
+IS_RGB = False
+
+# True - 1000 images for validation
+# This is a very time-consuming operation when TRUE
+IS_Validation = False
 
 BATCH_SIZE = 2
 EPOCHES = 4
@@ -47,7 +48,7 @@ def main():
 
 		for ssim_weight, model_save_path in zip(SSIM_WEIGHTS, MODEL_SAVE_PATHS):
 			print('\nBegin to train the network ...\n')
-			train_recons(original_imgs_path, validatioin_imgs_path, model_save_path, model_pre_path, ssim_weight, EPOCHES, BATCH_SIZE, debug=True)
+			train_recons(original_imgs_path, validatioin_imgs_path, model_save_path, model_pre_path, ssim_weight, EPOCHES, BATCH_SIZE, IS_Validation, debug=True)
 
 			print('\nSuccessfully! Done training...\n')
 	else:
@@ -86,7 +87,7 @@ def main():
 
 				output_save_path = 'outputs'
 				generate(infrared, visible, model_path, model_pre_path,
-						 ssim_weight, index, IS_VIDEO, is_RGB, type = fusion_type, output_path = output_save_path)
+						 ssim_weight, index, IS_VIDEO, IS_RGB, type = fusion_type, output_path = output_save_path)
 
 
 if __name__ == '__main__':
