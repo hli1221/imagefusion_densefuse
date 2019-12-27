@@ -5,16 +5,12 @@ from __future__ import print_function
 import scipy.io as scio
 import numpy as np
 import tensorflow as tf
-import matplotlib.pyplot as plt
 
 from ssim_loss_function import SSIM_LOSS
 from densefuse_net import DenseFuseNet
 from utils import get_train_images, get_train_images_rgb
 
-STYLE_LAYERS  = ('relu1_1', 'relu2_1', 'relu3_1', 'relu4_1')
-
-# TRAINING_IMAGE_SHAPE = (256, 256, 1) # (height, width, color_channels)
-# TRAINING_IMAGE_SHAPE_OR = (256, 256, 1) # (height, width, color_channels)
+STYLE_LAYERS = ('relu1_1', 'relu2_1', 'relu3_1', 'relu4_1')
 
 HEIGHT = 256
 WIDTH = 256
@@ -24,7 +20,7 @@ LEARNING_RATE = 1e-4
 EPSILON = 1e-5
 
 
-def train_recons(original_imgs_path, validatioin_imgs_path, save_path, model_pre_path, ssim_weight, EPOCHES_set, BATCH_SIZE, debug=False, logging_period=1):
+def train_recons(original_imgs_path, validatioin_imgs_path, save_path, model_pre_path, ssim_weight, EPOCHES_set, BATCH_SIZE, IS_Validation, debug=False, logging_period=1):
     if debug:
         from datetime import datetime
         start_time = datetime.now()
@@ -122,23 +118,25 @@ def train_recons(original_imgs_path, validatioin_imgs_path, save_path, model_pre
                         print('epoch: %d/%d, step: %d,  total loss: %s, elapsed time: %s' % (epoch, EPOCHS, step, _loss, elapsed_time))
                         print('p_loss: %s, ssim_loss: %s ,w_ssim_loss: %s ' % (_p_loss, _ssim_loss, ssim_weight * _ssim_loss))
 
-                        # calculate the accuracy rate for 1000 images, every 100 steps
-                        val_ssim_acc = 0
-                        val_pixel_acc = 0
-                        np.random.shuffle(validatioin_imgs_path)
-                        val_start_time = datetime.now()
-                        for v in range(val_batches):
-                            val_original_path = validatioin_imgs_path[v * BATCH_SIZE:(v * BATCH_SIZE + BATCH_SIZE)]
-                            val_original_batch = get_train_images(val_original_path, crop_height=HEIGHT, crop_width=WIDTH,flag=False)
-                            val_original_batch = val_original_batch.reshape([BATCH_SIZE, 256, 256, 1])
-                            val_ssim, val_pixel = sess.run([ssim_loss, pixel_loss], feed_dict={original: val_original_batch})
-                            val_ssim_acc = val_ssim_acc + (1 - val_ssim)
-                            val_pixel_acc = val_pixel_acc + val_pixel
-                        Val_ssim_data[count_loss] = val_ssim_acc/val_batches
-                        Val_pixel_data[count_loss] = val_pixel_acc / val_batches
-                        val_es_time = datetime.now() - val_start_time
-                        print('validation value, SSIM: %s, Pixel: %s, elapsed time: %s' % (val_ssim_acc/val_batches, val_pixel_acc / val_batches, val_es_time))
-                        print('------------------------------------------------------------------------------')
+                        # IS_Validation = True;
+                        # Calculating the accuracy rate for 1000 images, every 100 steps
+                        if IS_Validation:
+                            val_ssim_acc = 0
+                            val_pixel_acc = 0
+                            np.random.shuffle(validatioin_imgs_path)
+                            val_start_time = datetime.now()
+                            for v in range(val_batches):
+                                val_original_path = validatioin_imgs_path[v * BATCH_SIZE:(v * BATCH_SIZE + BATCH_SIZE)]
+                                val_original_batch = get_train_images(val_original_path, crop_height=HEIGHT, crop_width=WIDTH,flag=False)
+                                val_original_batch = val_original_batch.reshape([BATCH_SIZE, 256, 256, 1])
+                                val_ssim, val_pixel = sess.run([ssim_loss, pixel_loss], feed_dict={original: val_original_batch})
+                                val_ssim_acc = val_ssim_acc + (1 - val_ssim)
+                                val_pixel_acc = val_pixel_acc + val_pixel
+                            Val_ssim_data[count_loss] = val_ssim_acc/val_batches
+                            Val_pixel_data[count_loss] = val_pixel_acc / val_batches
+                            val_es_time = datetime.now() - val_start_time
+                            print('validation value, SSIM: %s, Pixel: %s, elapsed time: %s' % (val_ssim_acc/val_batches, val_pixel_acc / val_batches, val_es_time))
+                            print('------------------------------------------------------------------------------')
                         count_loss += 1
 
 
@@ -154,11 +152,12 @@ def train_recons(original_imgs_path, validatioin_imgs_path, save_path, model_pre
         loss_pixel_data = Loss_pixel[:count_loss]
         scio.savemat('./models/loss/DeepDenseLossPixelData.mat'+str(ssim_weight)+'', {'loss_pixel': loss_pixel_data})
 
-        validation_ssim_data = Val_ssim_data[:count_loss]
-        scio.savemat('./models/val/Validation_ssim_Data.mat' + str(ssim_weight) + '', {'val_ssim': validation_ssim_data})
-
-        validation_pixel_data = Val_pixel_data[:count_loss]
-        scio.savemat('./models/val/Validation_pixel_Data.mat' + str(ssim_weight) + '', {'val_pixel': validation_pixel_data})
+        # IS_Validation = True;
+        if IS_Validation:
+            validation_ssim_data = Val_ssim_data[:count_loss]
+            scio.savemat('./models/val/Validation_ssim_Data.mat' + str(ssim_weight) + '', {'val_ssim': validation_ssim_data})
+            validation_pixel_data = Val_pixel_data[:count_loss]
+            scio.savemat('./models/val/Validation_pixel_Data.mat' + str(ssim_weight) + '', {'val_pixel': validation_pixel_data})
 
 
         if debug:
