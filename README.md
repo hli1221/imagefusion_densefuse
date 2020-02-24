@@ -7,9 +7,6 @@ Published in: IEEE Transactions on Image Processing
 - [arXiv](https://arxiv.org/abs/1804.08361)
 
 
-## Pytorch version is available at [here](https://github.com/hli1221/densefuse-pytorch) (FOR REFERENCE ONLY)
-
-
 ## Note
 In 'main.py' file, you will find how to run these codes.
 
@@ -71,3 +68,7 @@ For code:
     note = {\url{https://github.com/hli1221/imagefusion_densefuse}}
   }
 ```
+
+
+## Pytorch version is available at [here](https://github.com/hli1221/densefuse-pytorch) (FOR REFERENCE ONLY)
+
