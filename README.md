@@ -55,18 +55,19 @@ If you have any question about this code, feel free to reach me(hui_li_jnu@163.c
 
 # Citation
 
-For paper:
-
  *H. Li, X. J. Wu, “DenseFuse: A Fusion Approach to Infrared and Visible Images,” IEEE Trans. Image Process., vol. 28, no. 5, pp. 2614–2623, May. 2019.*
 
-For code:
 ```
-@misc{li2018IVimagefusion_densefuse,
-    author = {Hui Li},
-    title = {Codes for DenseFuse},
-    year = {2018},
-    note = {\url{https://github.com/hli1221/imagefusion_densefuse}}
-  }
+@article{li2018densefuse,
+  title={DenseFuse: A Fusion Approach to Infrared and Visible Images},
+  author={Li, Hui and Wu, Xiao-Jun},
+  journal={IEEE Transactions on Image Processing},
+  volume={28},
+  number={5},
+  pages={2614--2623},
+  year={2018},
+  publisher={IEEE}
+}
 ```
 
 
