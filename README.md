@@ -55,7 +55,7 @@ If you have any question about this code, feel free to reach me(hui_li_jnu@163.c
 
 # Citation
 
- *H. Li, X. J. Wu, “DenseFuse: A Fusion Approach to Infrared and Visible Images,” IEEE Trans. Image Process., vol. 28, no. 5, pp. 2614–2623, May. 2019.*
+ *H. Li, X. J. Wu, “DenseFuse: A Fusion Approach to Infrared and Visible Images,” IEEE Trans. Image Process., vol. 28, no. 5, pp. 2614–2623, May 2019.*
 
 ```
 @article{li2018densefuse,
@@ -65,7 +65,8 @@ If you have any question about this code, feel free to reach me(hui_li_jnu@163.c
   volume={28},
   number={5},
   pages={2614--2623},
-  year={2018},
+  month={May},
+  year={2019},
   publisher={IEEE}
 }
 ```
