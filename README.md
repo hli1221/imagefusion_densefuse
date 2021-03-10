@@ -1,4 +1,6 @@
 # Densefuse: A Fusion Approach to Infrared and Visible Images - Tensorflow
+
+[Hui Li](https://hli1221.github.io/), Xiao-Jun Wu*  
 Published in: IEEE Transactions on Image Processing
 
 *H. Li, X. J. Wu, “DenseFuse: A Fusion Approach to Infrared and Visible Images,” IEEE Trans. Image Process., vol. 28, no. 5, pp. 2614–2623, May. 2019.*
