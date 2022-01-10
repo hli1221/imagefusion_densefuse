@@ -52,7 +52,7 @@ Hwang S, Park J, Kim N, et al. Multispectral pedestrian detection: Benchmark dat
 ### Multi-focus images(RGB)
 ![](https://github.com/hli1221/imagefusion_densefuse/blob/master/figures/fused_color.png)
 
-If you have any question about this code, feel free to reach me(hui_li_jnu@163.com, lihui@stu.jiangnan.edu.cn)
+If you have any question about this code, feel free to reach me(hui_li_jnu@163.com, lihui.cv@jiangnan.edu.cn)
 
 
 # Citation
